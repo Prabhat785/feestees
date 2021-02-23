@@ -50,6 +50,8 @@ app.get("/", (req, res)=>{
  app.post("/signup", (req, res)=>{
     console.log(req.body);
     console.log("Signup Request");
+    let checkedValue = req.body['user'];
+    console.log(checkedValue);
     let hash = bcrypt.hashSync(req.body.password, 14);
     req.body.password = hash;
     let registered_user = new User(req.body);
@@ -68,17 +70,23 @@ app.get("/", (req, res)=>{
     });
 });
 app.post("/login", function(req, res) {
+   
     User.findOne({ email: req.body.Email}, (err, user) => {
-        console.log(req.body);
-        console.log(user);
+        let checkedValue1 = req.body['user'];
+        let checkedValue2 = user.password;
+        console.log();
+        console.log("req"+" "+checkedValue1+ "user"+" "+checkedValue2);
+        // let checkedValue2 = user.body['user'];
+        // console.log("user"+checkedValue2);
         if (err || !user || !(bcrypt.compareSync(req.body.password, user.password))) {
             req.flash("error", "Incorrect Username/Password");
             req.session.isLoggedIn = false;
             console.log("Login is Unsuccessfull");
             res.redirect("/");
         } else {
-            console.log("Login is successfull");
-            req.flash("success", "Login Successful");
+             
+             console.log("Login is successfull");
+             req.flash("success", "Login Successful");
             //Setting Up the session
             req.session.isLoggedIn = true;
             req.session.user = user;
