@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const URI ="mongodb+srv://pk:cC5mnfnqJqC1kEKa@cluster0.ql1o7.mongodb.net/FesTees?retryWrites=true&w=majority";
+const URI ="mongodb+srv://pk:abcd@cluster0.ql1o7.mongodb.net/FesTees?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   await mongoose.connect(URI, {

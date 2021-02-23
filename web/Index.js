@@ -70,15 +70,8 @@ app.get("/", (req, res)=>{
     });
 });
 app.post("/login", function(req, res) {
-   
     User.findOne({ email: req.body.Email}, (err, user) => {
-        let checkedValue1 = req.body['user'];
-        let checkedValue2 = user.password;
-        console.log();
-        console.log("req"+" "+checkedValue1+ "user"+" "+checkedValue2);
-        // let checkedValue2 = user.body['user'];
-        // console.log("user"+checkedValue2);
-        if (err || !user || !(bcrypt.compareSync(req.body.password, user.password))) {
+        if (err || !user || !(bcrypt.compareSync(req.body.password, user.password)) || req.body.user!=user.user) {
             req.flash("error", "Incorrect Username/Password");
             req.session.isLoggedIn = false;
             console.log("Login is Unsuccessfull");

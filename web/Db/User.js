@@ -12,6 +12,10 @@ var UserSchema=new mongoose.Schema({
     password: {
         type:String,
         required: true
+    },
+    user:{
+        type:String,
+        required: true
     }
 },{ timestamps: true });
 module.exports=mongoose.model("User", UserSchema);
