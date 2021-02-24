@@ -1,0 +1,105 @@
+<%- include("./partials/header")%>
+<!-- //Modal2 -->
+<!-- /banner_bottom_agile_info -->
+<div class="page-head_agile_info_w3l">
+		<div class="container">
+			<h3>T-Shirts</h3>
+			<!--/w3_short-->
+				 <div class="services-breadcrumb">
+						<div class="agile_inner_breadcrumb">
+
+						   <ul class="w3_short">
+								<li><a href="index.html">Home</a><i>|</i></li>
+								<li>T-shirts</li>
+							</ul>
+						 </div>
+				</div>
+	   <!--//w3_short-->
+	</div>
+</div>
+ <!-- <div class="container" style="margin-top: 20px">
+	<div class="jumbotron" style="color: black; background-color: burlywood; align-items: center;">
+		<h2>Upload Your Designs here</h2>
+		<div class="file-drop-area" style="color: black; padding: 20px; margin: 10px,10px , 10px , 10px ;"> <span class="choose-file-button">Choose Files</span> <span class="file-message">or drag and drop files here</span> <input type="file" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif" multiple> </div>
+		<div id="divImageMediaPreview"> </div>
+		<input type="submit" value="Upload" style="align-items: center;">
+	</div>  
+  </div>-->
+  <div class="newsright">
+  <input type="submit" value="Upload"  >
+</div> 
+  <!-- banner-bootom-w3-agileits -->
+	<div class="banner-bootom-w3-agileits">
+	<div class="container">
+         <!-- mens -->
+		<div class="col-md-4 products-left">
+			<div class="filter-price">
+				<h3>Filter By <span>Location</span></h3>	
+			</div>
+			</div>
+			
+</div>	
+        <h1 style="color: rgb(10, 10, 10); padding: 20px;">All The Vendors that Provide T-Shirt</h1>
+        <ul style="align-items: center; padding: 10px">
+          <%vdata.forEach(function(vendor) { %>
+            <div class="men-pro-item" style="width: 70%;">
+			<li style="padding: 10px;">    
+                  <h4 style="color: rgb(17, 17, 17); background-color: rgb(253, 252, 252);padding:5px">Name :<%=vendor.username%></h5>
+				  <h4 style="color: rgb(17, 17, 17); background-color: rgb(253, 252, 252);padding:5px">Address :<%=vendor.address%></h5>
+				  <h4 style="color: rgb(17, 17, 17); background-color: rgb(253, 252, 252);padding:5px">Pincode :<%=vendor.pincode%></h5>
+				  <h4 style="color: rgb(17, 17, 17); background-color: rgb(253, 252, 252);padding:5px">Exp :<%=vendor.experience%></h5>
+					<h4 style="color: rgb(17, 17, 17); background-color: rgb(253, 252, 252);padding:5px">Cost Per T-shirt :<%=vendor.Estimate[0]%></h5>
+    </li >
+      </div>
+    <% }) %>
+</ul>
+
+<!-- //mens -->
+<!--/grids-->
+<div class="coupons">
+		<div class="coupons-grids text-center">
+			<div class="w3layouts_mail_grid">
+				<div class="col-md-3 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<i class="fa fa-truck" aria-hidden="true"></i>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>FREE SHIPPING</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur</p>
+					</div>
+				</div>
+				<div class="col-md-3 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<i class="fa fa-headphones" aria-hidden="true"></i>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>24/7 SUPPORT</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur</p>
+					</div>
+				</div>
+				<div class="col-md-3 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>MONEY BACK GUARANTEE</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur</p>
+					</div>
+				</div>
+					<div class="col-md-3 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<i class="fa fa-gift" aria-hidden="true"></i>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>FREE GIFT COUPONS</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+		</div>
+</div>
+<!--grids-->
+<!-- footer -->
+<%- include("./partials/footer")%>

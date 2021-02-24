@@ -17,6 +17,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+<script>
+	  function myFunction() {
+      // Get the checkbox
+      var checkBox = document.getElementById("T-Shirt");
+      // Get the output text
+      var text = document.getElementById("textin");
+    
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+	 
+    }
+	function myFunction2() {
+      // Get the checkbox
+      var checkBox = document.getElementById("Hoodies");
+      // Get the output text
+      var text = document.getElementById("textin2");
+    
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+	 
+    }
+	</script>
 </head>
 <body>
 <!-- header -->
@@ -26,7 +56,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<% console.log(currentUser) %> 
 			<%if(currentUser===null){%>
 		    <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
-			<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+			<li class ="dropdown"> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a>
+				<div class="dropdown-content">
+					<a href="#" data-toggle="modal" data-target="#myModal2">Buyer</a>
+					<a href="#" data-toggle="modal" data-target="#myModal3">Vendor</a>
+				  </div>
+			</li>
+						
 			<%}else{%>
 				<li> <a href="/logout" ><i class="fa fa-unlock-alt" aria-hidden="true"></i><%= currentUser.username%> </a></li>
 				<li> <a href="/logout" ><i class="fa fa-unlock-alt" aria-hidden="true"></i>Logout</a></li>
@@ -105,15 +141,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class=" menu__item"><a class="menu__link" href="/about">About</a></li><% } %> 	
 					<li class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">T-Shirts<span class="caret"></span></a>
-							<ul class="dropdown-menu multi-column columns-3">
+							<ul class="dropdown-menu multi-column columns-11">
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
 										<a href="mens.html"><img src="/use/images/top2.jpg" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.html">Half sleeves</a></li>
-											<li><a href="mens.html">Full sleeves</a></li>
+											<li><a href="/Tshirts">Half sleeves</a></li>
+											<li><a href="/Tshirts">Full sleeves</a></li>
 										</ul>
 									</div>
 									<!-- <div class="col-sm-3 multi-gd-img">
@@ -132,35 +168,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 					</li>
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hoodies <span class="caret"></span></a>
-							<ul class="dropdown-menu multi-column columns-3">
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hoodies<span class="caret"></span></a>
+							<ul class="dropdown-menu multi-column columns-11">
 								<div class="agile_inner_drop_nav_info">
-									<div class="col-sm-3 multi-gd-img">
-										<ul class="multi-column-dropdown">
-											<li><a href="womens.html">Clothing</a></li>
-											<li><a href="womens.html">Wallets</a></li>
-											<li><a href="womens.html">Footwear</a></li>
-											<li><a href="womens.html">Watches</a></li>
-											<li><a href="womens.html">Accessories</a></li>
-											<li><a href="womens.html">Bags</a></li>
-											<li><a href="womens.html">Caps & Hats</a></li>
-										</ul>
+									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+										<a href="mens.html"><img src="/use/images/top1.jpg" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="womens.html">Jewellery</a></li>
-											<li><a href="womens.html">Sunglasses</a></li>
-											<li><a href="womens.html">Perfumes</a></li>
-											<li><a href="womens.html">Beauty</a></li>
-											<li><a href="womens.html">Shirts</a></li>
-											<li><a href="womens.html">Sunglasses</a></li>
-											<li><a href="womens.html">Swimwear</a></li>
+											<li><a href="/Tshirts">Hoodies</a></li>
+											<li><a href="/Tshirts">Jackets</a></li>
 										</ul>
 									</div>
-									<div class="col-sm-6 multi-gd-img multi-gd-text ">
-										<a href="womens.html"><img src="/use/images/top1.jpg" alt=" "/></a>
-									</div>
-									<div class="clearfix"></div>
+									<!-- <div class="col-sm-3 multi-gd-img">
+										<ul class="multi-column-dropdown">
+											<li><a href="mens.html">Jewellery</a></li>
+											<li><a href="mens.html">Sunglasses</a></li>
+											<li><a href="mens.html">Perfumes</a></li>
+											<li><a href="mens.html">Beauty</a></li>
+											<li><a href="mens.html">Shirts</a></li>
+											<li><a href="mens.html">Sunglasses</a></li>
+											<li><a href="mens.html">Swimwear</a></li>
+										</ul>
+									</div> -->
+									
 								</div>
 							</ul>
 					</li>
@@ -218,17 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span></span>
 							</div> 
 							
-							<fieldset>
-								<legend>Sign In as-</legend>
-								<div>
-								  <input type="checkbox" id="buyer" name="user" value="buyer">
-								  <label for="buyer"><span>Buyer</span></label>
-								</div>
-								<div>
-								  <input type="checkbox" id="vendor" name="user" value="vendor">
-								  <label for="vendor"><span>Vendor</span></label>
-								</div>
-							  </fieldset>
+							
 							
 							<input type="submit" value="Sign In">
 						</form>
@@ -293,18 +314,103 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<label>Confirm Password</label>
 								<span></span>
 							</div> 
-							<fieldset>
-								<legend>Sign up as-</legend>
-								<div>
-								  <input type="checkbox" id="buyer" name="user" value="buyer">
-								  <label for="buyer"><span>Buyer</span></label>
-								</div>
-								<div>
-								  <input type="checkbox" id="vendor" name="user" value="vendor">
-								  <label for="vendor"><span>Vendor</span></label>
-								</div>
-							  </fieldset>
-					
+							  <br>
+							<input type="submit" value="Sign Up">
+						</form>
+						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+															<li><a href="#" class="facebook">
+																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="twitter"> 
+																  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="instagram">
+																  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="pinterest">
+																  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+														</ul>
+														<div class="clearfix"></div>
+														<p><a href="#">By clicking register, I agree to your terms</a></p>
+
+						</div>
+						<div class="col-md-4 modal_body_right modal_body_right1">
+							<img src="/use/images/log_pic.jpg" alt=" "/>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<!-- //Modal content-->
+			</div>
+		</div>
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+						<div class="modal-body modal-body-sub_agile">
+						<div class="col-md-8 modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
+						 <form action="/signupv" method="POST">
+
+							<div class="styled-input agile-styled-input-top">
+								<input type="text" name="username" required="">
+								<label>Name</label>
+								<span></span>
+							</div>
+							<div class="styled-input">
+								<input type="email" name="email" required=""> 
+								<label>Email</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="text" name="address" required=""> 
+								<label>Address</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="text" name="pincode" required=""> 
+								<label>PinCode</label>
+								<span></span>
+							</div> 
+							<div class ="agile_inner_drop_nav_info" style="font-size: 14px;
+							letter-spacing: 1px;
+							color: #777;">
+								<h5>Manufature</h5><br>
+	                             <input type="checkbox" id="T-Shirt" name="Manufature" value="T-Shirt" onclick="myFunction()">
+                                 <label for="T-Shirt">T-Shirts</label><br>
+								 <div class="styled-input" id="textin" style="display: none;">
+									<input type="text"  name="Estimate" > 
+									<label>Estimate Cost Per Piece</label>
+									<span></span>
+								</div> 
+                                 <input type="checkbox" id="Hoodies" name="Manufature" value="Hoodies" onclick="myFunction2()">
+                                 <label for="Hoodies" >Hoodies</label><br>
+								 <div class="styled-input" id="textin2" style="display: none;">
+									<input type="text"  name="Estimate" > 
+									<label>Estimate Cost Per Piece</label>
+									<span></span>
+								</div> 
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="text" name="experience" required=""> 
+								<label>Experience in Years</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="password" name="password" required=""> 
+								<label>Password</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
+								<input type="password" name="Confirm Password" required=""> 
+								<label>Confirm Password</label>
+								<span></span>
+							</div> 
 							  <br>
 							<input type="submit" value="Sign Up">
 						</form>
