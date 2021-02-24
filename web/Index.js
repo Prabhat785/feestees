@@ -1,7 +1,9 @@
 const express =require('express')
+const request = require('request');
 const app = express();
 const flash = require("connect-flash");
 const User = require("./Db/User");
+const Vendor = require("./Db/Vendor");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
@@ -50,8 +52,7 @@ app.get("/", (req, res)=>{
  app.post("/signup", (req, res)=>{
     console.log(req.body);
     console.log("Signup Request");
-    let checkedValue = req.body['user'];
-    console.log(checkedValue);
+    
     let hash = bcrypt.hashSync(req.body.password, 14);
     req.body.password = hash;
     let registered_user = new User(req.body);
@@ -69,9 +70,32 @@ app.get("/", (req, res)=>{
         }
     });
 });
+app.post("/signupv", (req, res)=>{
+    console.log(req.body);
+    console.log("Signup Request 2");
+    let hash = bcrypt.hashSync(req.body.password, 14);
+    req.body.password = hash;
+    let registered_user = new Vendor(req.body);
+    console.log(registered_user);
+    registered_user.save(function(err, doc) {
+        if (err) {
+            req.flash("error", "Already Taken Email");
+            console.log("Already Taken Username");
+            res.redirect("/");
+        } else {
+
+            req.flash("success", "Signup was successfully, now you can login");
+            console.log("Login Success");
+            res.redirect("/");
+        }
+    });
+});
 app.post("/login", function(req, res) {
+    //console.log(req.body);
     User.findOne({ email: req.body.Email}, (err, user) => {
-        if (err || !user || !(bcrypt.compareSync(req.body.password, user.password)) || req.body.user!=user.user) {
+        console.log(req.body);
+        console.log(err);
+        if (err || !user || !(bcrypt.compareSync(req.body.password, user.password))  ) {
             req.flash("error", "Incorrect Username/Password");
             req.session.isLoggedIn = false;
             console.log("Login is Unsuccessfull");
@@ -98,6 +122,15 @@ app.get("/logout", function(req, res) {
         });
     }
 });
-app.listen(3000, function(){
+app.get("/Tshirts", function(req, res) {
+    Vendor.find({},(err,d)=>{
+      console.log(d);
+      res.render("mens.ejs",{
+        vdata :d,
+        title:"Tshirts"
+    })
+    });  
+});
+app.listen(5000, function(){
     console.log("Server Has Started");
 });
